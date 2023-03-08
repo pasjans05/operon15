@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-//#include <bits/stdc++.h>
 using namespace std;
 
 ifstream plik("liczby15.txt");
@@ -91,11 +90,42 @@ void Dwa()
     }
 }
 
+void Trzy()
+{
+    int ostatnia = 0;
+    int liczba;
+    int A[2000];
+    int a = 0;
+    for (int i = 0; i < 2000; i++)
+    {
+        plik >> liczba;
+        if (czyPierwsza(liczba))
+        {
+            A[a] = liczba;
+            a++;
+        }
+    }
+    plik.close();
+    plik.open("liczby15.txt");
+    int n = sizeof(A) / sizeof(A[0]);
+    sort(A, A + n);
+    for (int i = 0; i < 2000; i++)
+    {
+        if (A[i] > 0)
+        {
+            if ((A[i] - 2) == ostatnia) cout << A[i] << "\t" << ostatnia << endl;
+            ostatnia = A[i];
+        }
+    }
+}
+
 int main()
 {
     cout << "15.1: " << Jeden() << endl;
     cout << "15.2: " << endl;
     Dwa();
+    cout << "15.3 " << endl;
+    Trzy();
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
