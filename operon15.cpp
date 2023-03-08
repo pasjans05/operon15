@@ -16,7 +16,6 @@ bool czyPierwsza(int n)
     {
         if (n % i == 0) return false;
     }
-    //cout << n << endl;
     return true;
 }
 
@@ -35,15 +34,13 @@ int Jeden()
 }
 
 int suma(int n)
-{   
-    int nn = n;
+{
     int sum = 0;
     while (n > 0)
     {
         sum += n % 10;
         n /= 10;
     }
-    //if (czyPierwsza(nn)) cout << nn << "\t" << sum << endl;
     return sum;
 }
 
