@@ -12,7 +12,7 @@ ifstream plik("liczby15.txt");
 bool czyPierwsza(int n)
 {
     if (n == 1) return false;
-    for (int i = 2; i < (n / 2); i++)
+    for (int i = 2; i <= (n / 2); i++)
     {
         if (n % i == 0) return false;
     }
@@ -36,12 +36,14 @@ int Jeden()
 
 int suma(int n)
 {   
+    int nn = n;
     int sum = 0;
     while (n > 0)
     {
         sum += n % 10;
         n /= 10;
     }
+    //if (czyPierwsza(nn)) cout << nn << "\t" << sum << endl;
     return sum;
 }
 
